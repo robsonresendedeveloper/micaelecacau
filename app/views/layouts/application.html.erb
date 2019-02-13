@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Micaelecacau</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  </head>
+
+  <body>
+    <ul class="header-menu visible-md visible-lg">
+        <a href="https://www.querodecasamento.com.br/lista-de-casamento/micaelecacau/"><li>Lista de Presentes</li></a>
+        <%= link_to new_confirmation_path(anchor: 'PHOTOS') do %><li>Fotos</li> <% end %>
+        <%= link_to new_confirmation_path(anchor: 'DATE') do %><li>Data e Hora</li> <% end %>
+        <%= link_to new_confirmation_path(anchor: 'CONFIRMATION') do %><li>Confirme sua presença</li> <% end %>
+        <% if logged_in? %>
+          <%= link_to confirmations_path do %><li>Área dos noivos</li><% end %>
+          <%= link_to logout_path, method: :delete do %><li>Sair</li><% end %>
+        <% else %>
+          <%= link_to login_path do %><li>Área dos noivos</li><% end %>
+        <% end %>
+        
+    </ul>
+    <div class="btn-menu-mobile visible-xs visible-sm">
+      <i class="fa fa-bars"></i>
+    </div>
+    <header>
+      
+    </header>
+    <% if notice %>
+      <div class="notices">
+       <p><%= notice %></p> 
+      </div>
+    <% end %>
+    <% flash.each do |name, msg| %>
+      <div class="notices">
+       <p><%= msg %></p> 
+      </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+      <div class="header-logo">
+        <div class="letter-logo m">M</div>
+        <div class="letter-logo e">&</div>
+        <div class="letter-logo c">C</div>
+      </div>   
+    <% end %>
+      
+    
+    
+    <%= yield %>
+    <footer>
+      <div class="container"> 
+        <div class="row">
+          <div class="footer-logo col-md-6">
+            <%= link_to root_path do %>
+              <div class="header-logo">
+                <div class="letter-logo m">M</div>
+                <div class="letter-logo e">&</div>
+                <div class="letter-logo c">C</div>
+              </div>
+            <% end %>
+          </div>
+          <div class="footer-links col-md-6">
+            <h3>Links:</h3>
+            <ul>
+              <a href="https://www.querodecasamento.com.br/lista-de-casamento/micaelecacau/"><li>Lista de Presentes</li></a>
+              <%= link_to new_confirmation_path(anchor: 'PHOTOS') do %><li>Fotos</li> <% end %>
+              <%= link_to new_confirmation_path(anchor: 'DATE') do %><li>Data e Hora</li> <% end %>
+              <%= link_to new_confirmation_path(anchor: 'CONFIRMATION') do %><li>Confirme sua presença</li> <% end %>
+              <% if logged_in? %>
+                <%= link_to confirmations_path do %><li>Área dos noivos</li><% end %>
+                <%= link_to logout_path, method: :delete do %><li>Sair</li><% end %>
+              <% else %>
+                <%= link_to login_path do %><li>Área dos noivos</li><% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div> 
+      </div>
+      <h6>Micael & Cacau 2019 Desenvolvido por Robson Resende</h6>
+    </footer>
+  </body>
+</html>

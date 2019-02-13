@@ -1,0 +1,25 @@
+<div class="confirmation">
+  <h1>Convidados Confirmados</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Telefone</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @confirmations.each do |confirmation| %>
+        <tr>
+          <td><%= confirmation.name %></td>
+          <td><%= confirmation.quantity %></td>
+          <td><%= confirmation.phone %></td>
+          <td><%= link_to 'Excluir', confirmation, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa confirmação?' }, id: "btn-delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
