@@ -11,18 +11,34 @@
   </head>
 
   <body>
-    <ul class="header-menu visible-md visible-lg">
-        <a href="https://www.querodecasamento.com.br/lista-de-casamento/micaelecacau/"><li>Lista de Presentes</li></a>
+    <div class="mobile-mask visible-xs visible-sm visible-md">
+      
+    </div>
+    <ul class="header-menu">
+        <div class="visible-xs visible-sm visible-md logo-mobile">
+          <%= link_to root_path do %>
+            <div class="visible-xs visible-sm header-logo header-logo-mobile">
+              <div class="letter-logo letter-logo-mobile m m-mobile">M</div>
+              <div class="letter-logo letter-logo-mobile e">&</div>
+              <div class="letter-logo letter-logo-mobile c c-mobile">C</div>
+            </div>   
+          <% end %>
+        </div>
+        <a href="https://www.querodecasamento.com.br/lista-de-casamento/micaelecacau/"><li id="first-child-menu">Lista de Presentes</li></a>
         <%= link_to new_confirmation_path(anchor: 'PHOTOS') do %><li>Fotos</li> <% end %>
         <%= link_to new_confirmation_path(anchor: 'DATE') do %><li>Data e Hora</li> <% end %>
         <%= link_to new_confirmation_path(anchor: 'CONFIRMATION') do %><li>Confirme sua presença</li> <% end %>
         <% if logged_in? %>
           <%= link_to confirmations_path do %><li>Área dos noivos</li><% end %>
-          <%= link_to logout_path, method: :delete do %><li>Sair</li><% end %>
+          <%= link_to logout_path, method: :delete do %><li id="last-child-menu">Sair</li><% end %>
         <% else %>
-          <%= link_to login_path do %><li>Área dos noivos</li><% end %>
+          <%= link_to login_path do %><li id="last-child-menu">Área dos noivos</li><% end %>
         <% end %>
-        
+        <div class="visible-xs visible-sm end-menu-mobile">
+          <div class="btn-close-menu">
+            <h1>X</h1>
+          </div>
+        </div>
     </ul>
     <div class="btn-menu-mobile visible-xs visible-sm">
       <i class="fa fa-bars"></i>
@@ -57,7 +73,7 @@
         <div class="row">
           <div class="footer-logo col-md-6">
             <%= link_to root_path do %>
-              <div class="header-logo">
+              <div class="footer-header-logo header-logo">
                 <div class="letter-logo m">M</div>
                 <div class="letter-logo e">&</div>
                 <div class="letter-logo c">C</div>

@@ -1,5 +1,6 @@
 class ConfirmationsController < ApplicationController
   before_action :set_confirmation, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /confirmations
   # GET /confirmations.json
@@ -70,5 +71,14 @@ class ConfirmationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def confirmation_params
       params.require(:confirmation).permit(:name, :quantity, :phone)
+    end
+
+    def require_user
+      if logged_in?
+        current_user
+      else
+        redirect_to root_path
+        flash["danger"] = "Você não tem permissão para acessar essa área"
+      end
     end
 end

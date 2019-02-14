@@ -44,4 +44,20 @@ $("document").ready(function(){
 			break;
 		}
 	}, 5000);
+	$(".btn-menu-mobile").click(function(){
+		$(".mobile-mask").css("left","0%");
+		$(".header-menu").css("left","0%");
+	});
+	$(".mobile-mask").click(function(){
+		$(".mobile-mask").css("left","-101%");
+		$(".header-menu").css("left","-100%");
+	});
+	$(".btn-close-menu").click(function(){
+		$(".mobile-mask").css("left","-101%");
+		$(".header-menu").css("left","-100%");
+	});
+	$(".header-menu li").click(function(){
+		$(".mobile-mask").css("left","-101%");
+		$(".header-menu").css("left","-100%");
+	});
 });
